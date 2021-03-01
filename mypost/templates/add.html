@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block head_title %}Agregar Post{% endblock %}
+{% block content %}
+
+
+<form action="" method="post">
+{% csrf_token %}
+Titulo
+<br>
+<input type="text" name="title" value="Nombre del Post">
+<hr>
+
+Texto
+<br>
+<input type="text" name="text" value="Texto del Post">
+<hr>
+
+
+Categoria
+<br>
+<select name="category">
+    {% for i in post_category %}
+    <option value="{{ i.id_category }}">{{ i.name }}</option>
+    {% endfor %}
+</select>
+<hr>
+
+<input type="submit" value="Agregar" />
+</form>
+
+
+{% endblock %}
